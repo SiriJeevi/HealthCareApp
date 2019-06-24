@@ -24,7 +24,7 @@
                 function _refreshPageData() {
                     $http({
                         method : 'GET',
-                        url : 'http://localhost:7777/'
+                        url : 'http://localhost:9988/'
                     }).then(function successCallback(response) {
                         $scope.patients = response.data;
                     }, function errorCallback(response) {
