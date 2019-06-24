@@ -19,7 +19,7 @@ public class PatientService {
 		Patient p2=new Patient("BB",50,"Hyderabad","bb.test@gmail.com");
 		Patient p3=new Patient("CC",55,"Delhi","cc.test@gmail.com");
 		Patient p4=new Patient("DD",45,"Chenai","dd.test@gmail.com");
-		Patient p5=new Patient("EE",45,"Chenai","ee.test@gmail.com");
+		Patient p5=new Patient("EE",49,"Chenai","ee.test@gmail.com");
 		
 		/*Patient p1=new Patient();
 		p1.setName("AA");
