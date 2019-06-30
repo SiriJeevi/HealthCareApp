@@ -12,7 +12,7 @@
 	<groupId>com.oracle</groupId>
 	<artifactId>healthcare</artifactId>
 	<version>0.0.1</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>healthcare</name>
 	<description>Demo project for Spring Boot</description>
 
