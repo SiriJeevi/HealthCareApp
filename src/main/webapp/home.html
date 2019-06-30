@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Patient App - REST Demo 
+        </title>
+        <!-- Load AngularJS ------>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script type="text/javascript">
+            var app = angular.module("PatientManagement", []);
+         
+            //Controller Part
+            app.controller("PatientManagementController", function($scope, $http, $location) {
+         
+                //Initialize page with default data which is blank in this example
+                $scope.patients = [];
+                    var host = $location.host();    
+					host = location.host;
+                //Now load the data from server
+                _refreshPageData();
+         
+               
+                //HTTP GET- get all Patient collection
+                function _refreshPageData() {
+                    $http({
+                        method : 'GET',
+                        url : 'http://'+host+'/healthcare/'
+                    }).then(function successCallback(response) {
+                        $scope.patients = response.data;
+                    }, function errorCallback(response) {
+                        console.log(response.statusText);
+                    });
+                }
+         
+         
+               
+            });
+        </script>
+        <style>
+            .button {
+                cursor: pointer;
+                color: blue;
+            }
+            td,th{
+                border: 1px solid gray;
+                width: 25%;
+                text-align: left;
+            }
+            th{
+                 color: blue;
+            }
+            table {
+                width: 600px;
+                background-color: #b3ccff;
+            }
+        </style>
+    <head>
+    <body ng-app="PatientManagement" ng-controller="PatientManagementController">
+         <h1>
+          <font color="red" > Health Care Application...! </font>
+        </h1>
+ 
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Email</th>
+            </tr>
+ 
+            <tr ng-repeat="patient in patients">
+          		  <td>{{ $index + 1 }}</td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.adress }}</td>
+                <td>{{ patient.email }}</td>
+               
+            </tr>
+ 
+        </table>
+    </body>
+</html>
